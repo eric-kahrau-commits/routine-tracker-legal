@@ -1,0 +1,271 @@
+/* Routine Tracker — Webseiten zur App.
+   Die Farben sind dieselben Tokens wie in DesignSystem/Tokens/AppColor.swift
+   und AccentPalette.swift. Die App gibt es nur dunkel, diese Seiten auch:
+   deshalb kein heller Modus, aber jede Farbe ausdrücklich gesetzt. */
+
+:root {
+  --ground:   #0B0B0D;
+  --surface:  #151517;
+  --card:     #1E1E21;
+  --elevated: #2A2A2E;
+  --hairline: #343438;
+
+  --text:     #F5F5F7;
+  --muted:    #8E8E97;
+  --faint:    #5A5A61;
+
+  --accent:   #7183D6;
+
+  --radius-card: 20px;
+  --radius-ctrl: 14px;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI",
+               Roboto, Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Der Schimmer oben zitiert den Kopfverlauf des Startbildschirms. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 340px;
+  background: linear-gradient(
+    to bottom,
+    rgba(113, 131, 214, 0.16),
+    rgba(113, 131, 214, 0.04) 55%,
+    rgba(11, 11, 13, 0) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.page {
+  position: relative;
+  z-index: 1;
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 3rem 1.25rem 5rem;
+}
+
+/* ---------- Kopf ---------- */
+
+.masthead {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.masthead img {
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  flex: none;
+}
+
+.masthead .titles { min-width: 0; }
+
+.masthead .app {
+  font-family: ui-rounded, "SF Pro Rounded", -apple-system, system-ui, sans-serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.masthead .kicker {
+  margin: 0.1rem 0 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* ---------- Typografie ---------- */
+
+h1 {
+  font-family: ui-rounded, "SF Pro Rounded", -apple-system, system-ui, sans-serif;
+  font-size: clamp(1.9rem, 6vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 0 0 0.5rem;
+  text-wrap: balance;
+}
+
+h2 {
+  font-family: ui-rounded, "SF Pro Rounded", -apple-system, system-ui, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  margin: 2.5rem 0 0.6rem;
+  text-wrap: balance;
+}
+
+h2:first-of-type { margin-top: 2rem; }
+
+p { margin: 0 0 1rem; }
+p:last-child { margin-bottom: 0; }
+
+.lead {
+  font-size: 1.08rem;
+  color: var(--muted);
+  margin-bottom: 2rem;
+}
+
+.stand {
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin: 0 0 2rem;
+}
+
+a { color: var(--accent); text-underline-offset: 3px; }
+a:hover { color: #8E9CE0; }
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+ul { margin: 0 0 1rem; padding-left: 1.15rem; }
+li { margin-bottom: 0.4rem; }
+li::marker { color: var(--faint); }
+
+.address {
+  white-space: pre-line;
+  background: var(--card);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-ctrl);
+  padding: 1rem 1.15rem;
+  margin: 0 0 1rem;
+  font-size: 0.98rem;
+}
+
+/* ---------- Kästen ---------- */
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-card);
+  padding: 1.35rem 1.4rem;
+  margin: 1.5rem 0;
+}
+
+.card h3 {
+  font-family: ui-rounded, "SF Pro Rounded", -apple-system, system-ui, sans-serif;
+  font-size: 1.02rem;
+  font-weight: 600;
+  margin: 0 0 0.4rem;
+}
+
+.card p { color: var(--muted); font-size: 0.97rem; }
+.card p strong { color: var(--text); }
+
+.contact-mail {
+  display: inline-block;
+  margin-top: 0.35rem;
+  font-size: 1.08rem;
+  font-weight: 600;
+}
+
+/* ---------- Fragen ---------- */
+
+.faq { display: grid; gap: 0.75rem; margin: 1.5rem 0; }
+
+.faq details {
+  background: var(--card);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-ctrl);
+  padding: 0.9rem 1.15rem;
+}
+
+.faq summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.faq summary::-webkit-details-marker { display: none; }
+
+.faq summary::after {
+  content: "+";
+  margin-left: auto;
+  color: var(--accent);
+  font-size: 1.3rem;
+  line-height: 1;
+  font-weight: 400;
+}
+
+.faq details[open] summary::after { content: "–"; }
+
+.faq details[open] summary { margin-bottom: 0.6rem; }
+.faq p { color: var(--muted); font-size: 0.97rem; }
+
+/* ---------- Navigation zwischen den Seiten ---------- */
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin: 2rem 0 0;
+}
+
+.links a {
+  display: inline-block;
+  padding: 0.6rem 1.05rem;
+  border-radius: var(--radius-ctrl);
+  background: var(--elevated);
+  border: 1px solid var(--hairline);
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.links a:hover { border-color: var(--accent); color: var(--accent); }
+
+.back {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.back:hover { text-decoration: underline; }
+
+footer {
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--hairline);
+  font-size: 0.85rem;
+  color: var(--faint);
+}
+
+footer a { color: var(--muted); }
+
+@media (max-width: 30rem) {
+  body { font-size: 16px; }
+  .page { padding: 2rem 1.1rem 4rem; }
+  .masthead img { width: 54px; height: 54px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
