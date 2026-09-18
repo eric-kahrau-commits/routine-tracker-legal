@@ -24,7 +24,7 @@
   <a class="back" href="index.html">← Zurück zum Support</a>
 
   <h1>Datenschutzerklärung</h1>
-  <p class="stand">Stand: 25. August 2026</p>
+  <p class="stand">Stand: 18. September 2026</p>
 
   <p class="lead">
     Routine Tracker verarbeitet keine Daten auf fremden Servern. Alles, was du
@@ -50,8 +50,14 @@ Deutschland</p>
     eingibst oder durch Bedienung auslöst:
   </p>
   <ul>
-    <li>Routinen mit Name, Symbol, Farbe und Zeitfenster</li>
-    <li>Aufgaben mit Titel, Notiz, Zeiten und Aktionseinstellungen</li>
+    <li>
+      Routinen mit Name, Symbol, Farbe, Zeitfenster und den Wochentagen, an
+      denen sie anstehen
+    </li>
+    <li>
+      Aufgaben mit Titel, Notiz, Zeiten und Aktionseinstellungen — bei einem
+      Wecker gehören Weckzeit, Wochentage und der gewählte Klingelton dazu
+    </li>
     <li>Der Tagesverlauf: welche Aufgaben du wann abgehakt oder übersprungen hast</li>
     <li>Die Tagesserie je Routine</li>
     <li>
@@ -63,14 +69,16 @@ Deutschland</p>
   <h2>Wo diese Daten liegen</h2>
   <p>
     Routinen, Aufgaben und der Tagesverlauf liegen in einer lokalen Datenbank
-    (SwiftData) im geschützten Bereich der App auf deinem Gerät. Die
-    Einstellungen liegen in den App-eigenen Benutzervorgaben (UserDefaults).
+    (SwiftData) auf deinem Gerät. Die Einstellungen liegen in den
+    Benutzervorgaben (UserDefaults).
   </p>
   <p>
-    Beides ist Teil des App-Containers. Andere Apps haben darauf keinen
-    Zugriff, und der Anbieter dieser App hat ebenfalls keinen Zugriff darauf.
-    Es findet keine Übertragung an einen Server statt — die App enthält
-    keinerlei Netzwerkfunktion.
+    Beides liegt in einem gemeinsamen geschützten Bereich (App Group), auf den
+    ausschließlich die App selbst und ihr Widget zugreifen können — beide
+    gehören zu dieser App. Andere Apps haben keinen Zugriff darauf, und der
+    Anbieter dieser App hat ebenfalls keinen Zugriff. Es findet keine
+    Übertragung an einen Server statt — die App enthält keinerlei
+    Netzwerkfunktion.
   </p>
 
   <h2>Zweck und Rechtsgrundlage</h2>
@@ -94,10 +102,48 @@ Deutschland</p>
     Werbenetzwerke, keine Analysedienste und keine Absturzberichts-Dienste ein.
   </p>
 
-  <h2>Keine Berechtigungen, kein Tracking</h2>
+  <h2>Berechtigungen</h2>
   <p>
-    Die App fragt keine Systemberechtigungen ab. Sie greift nicht auf Kontakte,
-    Fotos, Standort, Mikrofon, Kamera, Gesundheitsdaten oder Kalender zu.
+    Die App fragt genau eine Systemberechtigung ab: die Erlaubnis, Wecker zu
+    stellen. Gefragt wird erst in dem Moment, in dem du an einer Aufgabe
+    tatsächlich einen Wecker einrichtest — wer die Weckfunktion nicht nutzt,
+    wird nie gefragt. Du kannst die Erlaubnis in den Systemeinstellungen
+    jederzeit widerrufen; die App bemerkt das und zeigt die betroffenen Wecker
+    dann als nicht gestellt an.
+  </p>
+  <p>
+    Darüber hinaus greift die App auf nichts zu: keine Kontakte, Fotos,
+    Standort, Mikrofon, Kamera, Gesundheitsdaten und keinen Kalender.
+  </p>
+
+  <h2>Wecker</h2>
+  <p>
+    Stellst du einen Wecker, übergibt die App dem Betriebssystem, was zum
+    Klingeln nötig ist: Weckzeit, Wochentage, den gewählten Klingelton und den
+    Namen der Routine. Der Name steht auf der Weckmeldung, damit auf dem
+    Sperrbildschirm erkennbar ist, worum es geht.
+  </p>
+  <p>
+    Diese Angaben gehen an iOS auf deinem Gerät — nicht an den Anbieter und
+    nicht ins Internet. Die Klingeltöne sind Teil der App und werden nicht
+    nachgeladen.
+  </p>
+  <p>
+    Nimmst du den Wecker in der App zurück oder löschst die Aufgabe, wird er
+    auch beim System wieder abgemeldet.
+  </p>
+
+  <h2>Widget</h2>
+  <p>
+    Das Widget zeigt den Namen der Routine, die gerade ansteht, und ihre
+    nächsten Aufgaben. Diese Angaben sind damit auf dem Home-Bildschirm zu
+    sehen, also auch für jemanden, der dir über die Schulter schaut. Wer das
+    nicht möchte, nimmt das Widget vom Bildschirm.
+  </p>
+  <p>
+    Das Widget liest dieselbe lokale Ablage wie die App und überträgt nichts.
+    Ein Haken, den du im Widget setzt, wird genauso gespeichert wie einer in
+    der App.
   </p>
   <p>
     Es findet kein Tracking im Sinne des App-Tracking-Transparency-Rahmens
